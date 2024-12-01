@@ -118,7 +118,6 @@ async def update_post(query_args: PostIdQueryArgs, data: PostBody):
         abort(400)
 
     # Add revision
-    """
     db.post_revisions.insert_one({
         "_id": str(uuid.uuid4()),
         "post_id": post["_id"],
@@ -126,7 +125,6 @@ async def update_post(query_args: PostIdQueryArgs, data: PostBody):
         "new_content": data.content,
         "time": int(time.time())
     })
-    """
 
     # Update post
     post["edited_at"] = int(time.time())
